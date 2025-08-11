@@ -37,7 +37,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, '../../frontend/dist')],  # React build folder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -60,15 +60,22 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = []
+
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, '../../staticfiles')  # Where collectstatic puts files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, '../../frontend/dist/static'),  # React static files
+]
+
 MEDIA_ROOT = os.getenv('MEDIA_ROOT', BASE_DIR / 'media')
 MEDIA_URL = '/media/'
 
-# CORS
+# CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
 
 # FAISS index path
