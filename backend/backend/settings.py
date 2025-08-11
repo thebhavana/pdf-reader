@@ -67,9 +67,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '../../staticfiles')  # Where collectstatic puts files
+STATIC_ROOT = os.path.join(BASE_DIR, '../../staticfiles')  # collectstatic output folder
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '../../frontend/dist/static'),  # React static files
+    os.path.join(BASE_DIR, '../../frontend/dist/assets'),  # Vite's assets folder
 ]
 
 MEDIA_ROOT = os.getenv('MEDIA_ROOT', BASE_DIR / 'media')
