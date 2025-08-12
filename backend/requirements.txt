@@ -9,3 +9,5 @@ numpy
 uvicorn
 gunicorn
 sentence-transformers
+torch
+transformers
